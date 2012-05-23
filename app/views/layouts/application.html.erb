@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GapDemo</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= stylesheet_link_tag    "slate-bootswatch", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="page-header">
+    <h1 class="brand">GAP</h1>
+    <p></p>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container" style="width: auto;">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li><%= link_to "Home", root_path %></li>
+            <li class="divider-vertical"></li>
+            <li><%= link_to "Collections", collections_path %></li>
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div>
+    </div><!-- /navbar-inner -->
+  </div><!-- /navbar -->
+</div>
+
+
+    <% if notice || alert %>
+        <%= javascript_include_tag "bootstrap-alert" %>
+    <% end %>
+    <% if notice %>
+    <div id="notice" class="alert alert-info"">
+        <a class="close" data-dismiss="alert" href="#">&times;</a>
+        <%= notice %>
+    </div>
+    <% end %>
+    <% if alert %>
+    <div id="alert" class="alert">
+        <a class="close" data-dismiss="alert" href="#">&times;</a>
+        <%= alert %>
+    </div>
+    <% end %>
+
+<%= yield %>
+
+</body>
+</html>
